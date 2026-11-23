@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Re-Dezyne The Web — modern, responsive websites, eCommerce, blogs and hosting setup for businesses. Established 2017.">
+<link rel="icon" href="data:,">
+<title>Re-Dezyne The Web — Web Design, eCommerce, Blogs & Hosting Setup | Est. 2017</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1e3f; --navy-2:#122a52; --ink:#101828; --muted:#5b6b82; --line:#e2e8f0;
+  --bg:#ffffff; --bg-soft:#f6f8fb; --card:#ffffff;
+  --teal:#0e9f8a; --teal-dark:#0b7a68; --teal-soft:#e6f4f1;
+  --amber:#f59e0b; --amber-dark:#d97706; --amber-soft:#fef3c7;
+  --navy-soft:#eaf0fa;
+  --radius:18px; --radius-sm:12px;
+  --shadow:0 10px 30px rgba(11,30,63,.08);
+  --header-bg:rgba(255,255,255,.92);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#eef2f7; --muted:#a8b3c2; --line:#24344d;
+    --bg:#0a1526; --bg-soft:#0e1e38; --card:#0f2342;
+    --teal-soft:#0d2f2a; --amber-soft:#2e2103; --navy-soft:#162a4d;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+    --header-bg:rgba(10,21,38,.92);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important; transition:none!important} }
+body{margin:0;font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
+h1,h2,h3,.display{font-family:"Sora","Plus Jakarta Sans",sans-serif;line-height:1.08;letter-spacing:-.02em;margin:0}
+a{color:var(--teal-dark)} @media(prefers-color-scheme:dark){a{color:#3dd6bd}}
+img{max-width:100%}
+button,[role="button"],select,input,textarea{font:inherit}
+button,select,input[type="text"],input[type="email"],input[type="tel"]{min-height:44px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark)}
+@media(prefers-color-scheme:dark){.eyebrow{color:#3dd6bd}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 20px;border-radius:999px;border:1px solid transparent;font-weight:700;text-decoration:none;cursor:pointer;transition:.18s}
+.btn-primary{background:var(--navy);color:#fff} .btn-primary:hover{background:var(--navy-2);transform:translateY(-1px)}
+@media(prefers-color-scheme:dark){.btn-primary{background:#f59e0b;color:#111827} .btn-primary:hover{background:#fbbf24}}
+.btn-teal{background:var(--teal);color:#fff} .btn-teal:hover{background:var(--teal-dark)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)} .btn-ghost:hover{border-color:var(--teal)}
+.btn-amber{background:var(--amber);color:#1a1200} .btn-amber:hover{background:#fbbf24}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:var(--teal-soft);color:var(--ink);font-size:.85rem;font-weight:700;border:1px solid var(--line)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:50;background:var(--header-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header-in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.logo-mark{width:44px;height:44px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:Sora,sans-serif;font-weight:800;font-size:1.05rem;flex:none}
+@media(prefers-color-scheme:dark){.logo-mark{background:var(--amber);color:#111}}
+.logo-text{line-height:1} .logo-text strong{font-family:Sora,sans-serif;font-size:1.08rem;display:block} .logo-text span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
+nav.main{display:flex;gap:4px;align-items:center}
+nav.main button{background:none;border:0;padding:10px 13px;min-height:44px;border-radius:999px;font-weight:700;color:var(--muted);cursor:pointer}
+nav.main button.active{background:var(--navy);color:#fff}
+@media(prefers-color-scheme:dark){nav.main button.active{background:var(--amber);color:#111}}
+.header-cta{display:flex;gap:10px;align-items:center}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);background:var(--card);border-radius:12px;cursor:pointer;font-size:1.2rem}
+@media(max-width:860px){ nav.main{display:none;position:absolute;left:16px;right:16px;top:76px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch} nav.main.open{display:flex} nav.main button{text-align:left} .burger{display:grid;place-items:center} .header-cta .btn{display:none} }
+
+/* Pages */
+.page{display:none} .page.active{display:block}
+.section{padding:64px 0} .section-soft{background:var(--bg-soft)}
+.section-head{max-width:720px;margin-bottom:28px} .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:10px 0 10px} .section-head p{color:var(--muted);font-size:1.05rem;margin:0}
+
+/* Hero */
+.hero{padding:56px 0 28px;background:linear-gradient(180deg,var(--bg-soft),var(--bg))}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(2.4rem,5.2vw,4.1rem);margin:14px 0 16px}
+.hero h1 em{font-style:normal;color:var(--teal-dark);box-shadow:inset 0 -0.45em 0 var(--teal-soft)}
+@media(prefers-color-scheme:dark){.hero h1 em{color:#3dd6bd}}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:56ch;margin:0 0 22px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;color:var(--muted);font-size:.92rem;font-weight:600}
+.browser{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
+.browser-bar{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--bg-soft)}
+.browser-bar i{width:11px;height:11px;border-radius:50%;display:block}
+.url{margin-left:6px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.82rem;color:var(--muted)}
+.mock{padding:22px;background:var(--navy);color:#fff}
+.mock h3{font-size:1.6rem;margin:8px 0} .mock p{color:#cbd5e1;margin:0 0 16px}
+.mock-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
+.mock-grid div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px}
+.mock-grid b{display:block;font-size:1.1rem} .mock-grid span{font-size:.82rem;color:#cbd5e1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0 8px}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.stat b{font-family:Sora,sans-serif;font-size:1.7rem;display:block} .stat span{color:var(--muted);font-size:.92rem;font-weight:600}
+
+/* Cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px} .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px} .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.grid-3,.grid-4{grid-template-columns:1fr 1fr}} @media(max-width:620px){.grid-3,.grid-4,.grid-2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 2px 10px rgba(11,30,63,.03)}
+.card h3{font-size:1.15rem;margin:10px 0 8px} .card p{color:var(--muted);margin:0}
+.icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:1.25rem;background:var(--navy-soft)}
+.icon.teal{background:var(--teal-soft)} .icon.amber{background:var(--amber-soft)}
+.color-card{border-top:6px solid var(--navy)} .color-card.teal{border-top-color:var(--teal)} .color-card.amber{border-top-color:var(--amber)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px} @media(max-width:900px){.steps{grid-template-columns:1fr 1fr}} @media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--card)} .step-num{font-family:Sora,sans-serif;font-weight:800;color:var(--teal-dark);font-size:.9rem;letter-spacing:.1em}
+
+/* Pricing */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px} @media(max-width:900px){.pricing{grid-template-columns:1fr}}
+.price-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;position:relative}
+.price-card.featured{border:2px solid var(--teal);box-shadow:var(--shadow)}
+.badge{position:absolute;top:-12px;left:20px;background:var(--teal);color:#fff;font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:999px}
+.price{font-family:Sora,sans-serif;font-size:2.2rem;font-weight:800;margin:8px 0 2px} .price small{font-size:.95rem;color:var(--muted);font-weight:600}
+.price-card ul{margin:16px 0;padding:0;list-style:none} .price-card li{padding:7px 0 7px 26px;position:relative;color:var(--muted)} .price-card li::before{content:"✓";position:absolute;left:0;color:var(--teal-dark);font-weight:800}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top} th{background:var(--bg-soft);font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}
+tr:last-child td{border-bottom:0} td.price-cell{font-weight:800;white-space:nowrap}
+.note{background:var(--amber-soft);border:1px solid #fde68a;border-radius:14px;padding:16px 18px;color:#78350f}
+@media(prefers-color-scheme:dark){.note{color:#fde68a;border-color:#92400e}}
+.estimator{background:var(--navy);color:#fff;border-radius:22px;padding:26px}
+.estimator h3{color:#fff} .estimator label{font-weight:700;font-size:.92rem;display:block;margin-bottom:6px}
+.estimator select,.estimator input[type="range"]{width:100%} .estimator select{min-height:48px;border-radius:12px;padding:10px 12px;border:1px solid #334155}
+.est-total{font-family:Sora,sans-serif;font-size:2.4rem;font-weight:800} .est-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px} @media(max-width:800px){.est-grid{grid-template-columns:1fr}}
+
+/* Work */
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:18px 0}
+.filters input[type="search"]{flex:1;min-width:210px;padding:12px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.chip{min-height:40px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-weight:700;cursor:pointer;color:var(--muted)}
+.chip.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px} @media(max-width:800px){.work-grid{grid-template-columns:1fr}}
+.work-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--card)}
+.work-preview{padding:22px;min-height:190px;color:#fff}
+.work-preview h3{font-size:1.55rem;max-width:12ch} .work-preview p{opacity:.92;max-width:42ch;margin:8px 0 0;font-size:.95rem}
+.work-body{padding:20px} .work-body h3{font-size:1.25rem} .work-body p{color:var(--muted)}
+.highlight{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.92rem}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px} .tag{font-size:.75rem;font-weight:700;background:var(--bg-soft);border:1px solid var(--line);padding:5px 8px;border-radius:999px}
+
+/* Team / timeline */
+.avatar{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-family:Sora,sans-serif;color:#fff;background:var(--navy)}
+.timeline{border-left:3px solid var(--line);margin-left:8px;padding-left:22px;display:grid;gap:20px}
+.timeline div{position:relative} .timeline div::before{content:"";position:absolute;left:-29px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--teal);border:3px solid var(--bg)}
+
+/* Form */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px} @media(max-width:700px){.form-grid{grid-template-columns:1fr}}
+.field label{font-weight:700;display:block;margin-bottom:6px} .field label span{color:#dc2626}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.field textarea{min-height:130px;resize:vertical}
+.field small{color:var(--muted)}
+.error{color:#dc2626;font-size:.88rem;display:none;margin-top:5px}
+.success{display:none;background:var(--teal-soft);border:1px solid var(--teal);border-radius:16px;padding:20px}
+#contactLayout{grid-template-columns:.85fr 1.15fr}
+@media(max-width:820px){#contactLayout{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--line);padding:36px 0 44px;background:var(--bg-soft);color:var(--muted)}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:24px} @media(max-width:700px){.footer-grid{grid-template-columns:1fr}}
+footer a{color:var(--muted)} footer button.linklike{background:none;border:0;color:var(--muted);cursor:pointer;padding:6px 0;min-height:36px;font-weight:600;text-align:left}
+.cta-band{background:var(--navy);color:#fff;border-radius:22px;padding:30px;display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+.cta-band p{color:#cbd5e1;margin:6px 0 0;max-width:60ch}
+.kicker-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap header-in">
+    <a class="logo" href="#home" data-nav="home" aria-label="Re-Dezyne The Web home">
+      <span class="logo-mark">R&lt;/&gt;</span>
+      <span class="logo-text"><strong>RE-Dezyne The Web</strong><span>Est. 2017 • Web Design Studio</span></span>
+    </a>
+    <nav class="main" id="mainNav" aria-label="Main navigation">
+      <button data-nav="home" class="active">Home</button>
+      <button data-nav="about">About</button>
+      <button data-nav="services">Services &amp; Pricing</button>
+      <button data-nav="work">Examples</button>
+      <button data-nav="contact">Contact</button>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-primary" href="#contact" data-nav="contact">Start a Project →</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ HOME ============ -->
+<section class="page active" id="page-home" aria-label="Home">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="pill"><span class="dot"></span> Established 2017 — Now booking new projects</span>
+        <h1>Your business, <em>re-dezyned</em> for the web.</h1>
+        <p class="lead">We build modern, fast, mobile-first websites that turn visitors into customers — clear pricing, honest timelines, and a team with decades of combined experience behind every pixel and line of code.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-teal" data-nav="services">See Services &amp; Prices</a>
+          <a href="#work" class="btn btn-ghost" data-nav="work">View Live Examples →</a>
+        </div>
+        <div class="hero-meta"><span>✓ HTML5 · CSS3 · JavaScript</span><span>✓ 100% Responsive</span><span>✓ No templates — hand-built</span></div>
+      </div>
+      <div>
+        <div class="browser" aria-label="Preview of a Re-Dezyne website">
+          <div class="browser-bar"><i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i><span class="url">yourbusiness.com</span></div>
+          <div class="mock">
+            <span style="font-size:.75rem;letter-spacing:.14em;font-weight:800;color:#5eead4">WELCOME • TRUSTED • LOCAL</span>
+            <h3>A homepage that answers “what do you do?” in 5 seconds.</h3>
+            <p>Clear headline, one main action, prices up front — and a design that works beautifully on a phone.</p>
+            <a href="#contact" data-nav="contact" class="btn btn-amber" style="min-height:44px">Get an Estimate</a>
+            <div class="mock-grid"><div><b>5 sec</b><span>to understand the offer</span></div><div><b>1 tap</b><span>to call, book or buy</span></div><div><b>100%</b><span>mobile-friendly</span></div></div>
+          </div>
+        </div>
+        <p style="color:var(--muted);font-size:.88rem;margin:10px 2px 0">Every site we ship is tested at phone width, with a keyboard, and in light &amp; dark mode.</p>
+      </div>
+    </div>
+    <div class="wrap"><div class="stats">
+      <div class="stat"><b>2017</b><span>Founded — 9 years building for the web</span></div>
+      <div class="stat"><b>50+ yrs</b><span>Combined team experience</span></div>
+      <div class="stat"><b>15</b><span>Live interactive demos in our Examples</span></div>
+      <div class="stat"><b>4</b><span>Clear services — no hidden upsells</span></div>
+    </div></div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">Why colour matters</p><h2>Designed with colour psychology — not just decoration</h2><p>Colour decides whether a visitor trusts you, stays, and clicks. We choose every palette on purpose for your audience and your goal.</p></div>
+      <div class="grid-3">
+        <article class="card color-card"><h3>Deep Navy — Trust &amp; Professionalism</h3><p>Banks, law firms and tech companies use navy because it signals stability and competence. We use it for headers, authority sections and primary actions so your business feels established from the first glance.</p></article>
+        <article class="card color-card teal"><h3>Teal — Growth, Balance &amp; Clarity</h3><p>Teal blends blue’s trust with green’s growth. It feels modern and calm without feeling cold — ideal for calls to action, highlights and interactive elements that should invite a click, not shout.</p></article>
+        <article class="card color-card amber"><h3>Warm Amber — Optimism &amp; Action</h3><p>Amber draws the eye and creates urgency without alarm. We reserve it for the one action that matters most on each page — “Get an estimate,” “Book now,” “Add to cart” — so visitors always know what to do next.</p></article>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-soft">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">What we do</p><h2>Four services. Transparent prices.</h2><p>Pick exactly what you need — a website, a store, a blog, or help getting hosted — each priced by pages and items, up front.</p></div>
+      <div class="grid-4">
+        <article class="card"><div class="icon">🌐</div><h3>Standard Web Design</h3><p>From a sharp 1-page site at $499 to a full 10-page business site at $1,899.</p><p style="margin-top:12px"><a href="#services" data-nav="services"><b>See web pricing →</b></a></p></article>
+        <article class="card"><div class="icon teal">🛒</div><h3>eCommerce Design</h3><p>Stores priced by catalogue size — 10, 50 or 150 products, with cart &amp; checkout set up for you.</p><p style="margin-top:12px"><a href="#services" data-nav="services"><b>See store pricing →</b></a></p></article>
+        <article class="card"><div class="icon amber">✍️</div><h3>Blog Creation</h3><p>A blog that builds trust and search traffic — setup, design and starter posts from $399.</p><p style="margin-top:12px"><a href="#services" data-nav="services"><b>See blog pricing →</b></a></p></article>
+        <article class="card"><div class="icon">⚙️</div><h3>Hosting Setup</h3><p>Domain + hosting configured correctly for a flat service fee — separate from the host’s own charges.</p><p style="margin-top:12px"><a href="#services" data-nav="services"><b>See setup pricing →</b></a></p></article>
+      </div>
+      <div style="height:22px"></div>
+      <div class="section-head" style="margin-bottom:16px"><h2 style="font-size:1.7rem">How every project runs</h2></div>
+      <div class="steps">
+        <div class="step"><span class="step-num">01 — BRIEF</span><h3>We learn your business</h3><p style="color:var(--muted)">Who visits, what action matters — call, book, buy, enrol — and what’s getting in their way today.</p></div>
+        <div class="step"><span class="step-num">02 — DESIGN</span><h3>Layout, type &amp; colour</h3><p style="color:var(--muted)">Chosen for your audience first. The hero answers “what is this?” in five seconds.</p></div>
+        <div class="step"><span class="step-num">03 — BUILD</span><h3>Interactive, not just pretty</h3><p style="color:var(--muted)">Menus filter, prices calculate, carts count — hand-built in HTML5, CSS3 &amp; JavaScript.</p></div>
+        <div class="step"><span class="step-num">04 — LAUNCH</span><h3>Refined for everyone</h3><p style="color:var(--muted)">Checked on phones, with a keyboard, and for speed before it goes live.</p></div>
+      </div>
+      <div style="height:26px"></div>
+      <div class="cta-band"><div><h2 style="color:#fff">Ready to be found, trusted — and contacted?</h2><p>Tell us what you’d like designed and we’ll reply in writing with next steps and a clear estimate. No pressure, no jargon.</p></div><a href="#contact" data-nav="contact" class="btn btn-amber">Start with the Contact Form →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="page" id="page-about" aria-label="About">
+  <div class="section">
+    <div class="wrap">
+      <p class="eyebrow">About Re-Dezyne The Web</p>
+      <h1 style="font-size:clamp(2rem,4vw,3.2rem);max-width:18ch;margin:12px 0 14px">We help businesses create an online presence that actually works.</h1>
+      <p style="color:var(--muted);font-size:1.12rem;max-width:68ch">Founded in <b>2017</b>, Re-Dezyne The Web was built on a simple belief: a small business website shouldn’t just exist — it should bring in enquiries, bookings and sales. Our team brings <b>decades of combined experience</b> in design, development, content and search, and we put that experience to work for local shops, service companies, creators and growing brands.</p>
+      <div class="kicker-list"><span class="pill">Est. 2017</span><span class="pill">Hand-built — no page builders</span><span class="pill">Mobile-first, always</span><span class="pill">Prices published up front</span></div>
+
+      <div style="height:36px"></div>
+      <div class="section-head"><h2>How we build your online presence</h2><p>Being online is more than having a page. It’s being found, being believed, and being easy to contact — in that order.</p></div>
+      <div class="grid-2">
+        <article class="card"><div class="icon teal">🔎</div><h3>1. Be Found</h3><p>We structure every page with clear headings, descriptive titles and local SEO basics — so Google and customers can understand what you do and where you do it. Fast, mobile-friendly pages rank and retain better.</p></article>
+        <article class="card"><div class="icon">🛡️</div><h3>2. Be Trusted</h3><p>Professional colour, consistent type, real prices and clear policies build confidence in seconds. We design for credibility first — no clutter, no gimmicks, no hidden costs.</p></article>
+        <article class="card"><div class="icon amber">💬</div><h3>3. Be Contacted</h3><p>Every page leads to one clear action: a form, a booking button, or a tap-to-call. Our contact forms ask only what’s needed and land directly in your inbox — no visitor should ever wonder how to reach you.</p></article>
+        <article class="card"><div class="icon teal">🛒</div><h3>4. Be Chosen</h3><p>Interactive touches — filterable menus, live price estimators, working carts — let visitors experience your value before they ever speak to you. That’s what turns a visit into a customer.</p></article>
+      </div>
+
+      <div style="height:36px"></div>
+      <div class="grid-2">
+        <div>
+          <div class="section-head"><h2>Our story</h2></div>
+          <div class="timeline">
+            <div><b>2017 — Founded</b><p style="color:var(--muted);margin:4px 0">Re-Dezyne The Web launches to give small businesses agency-quality websites without agency confusion — fixed prices, plain language.</p></div>
+            <div><b>2019 — eCommerce &amp; blogs added</b><p style="color:var(--muted);margin:4px 0">Clients needed to sell and publish, not just brochure pages. Stores and blogs became core services, priced by products and posts.</p></div>
+            <div><b>2022 — Hosting setup, done properly</b><p style="color:var(--muted);margin:4px 0">We formalised domain &amp; hosting setup as its own service — including security, SSL and a PHP version check — so launches don’t stall on technical setup.</p></div>
+            <div><b>Today — 15 live demos &amp; counting</b><p style="color:var(--muted);margin:4px 0">Our Examples page shows 11 business concepts plus 4 advanced labs, all hand-built and interactive. What you see there is how we build for you.</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="section-head"><h2>Meet the expertise</h2><p>Decades of experience, across every part of a website.</p></div>
+          <div style="display:grid;gap:14px">
+            <article class="card" style="display:flex;gap:16px;align-items:flex-start"><span class="avatar">LD</span><div><h3 style="margin:0">Lead Designer — 14 years</h3><p>Brand, layout and colour psychology. Makes sure your site looks professional and guides the eye to the action that matters.</p></div></article>
+            <article class="card" style="display:flex;gap:16px;align-items:flex-start"><span class="avatar" style="background:var(--teal-dark)">SD</span><div><h3 style="margin:0">Senior Developer — 16 years</h3><p>HTML5, CSS3 &amp; JavaScript. Builds fast, responsive, accessible pages — and interactive features visitors can actually use.</p></div></article>
+            <article class="card" style="display:flex;gap:16px;align-items:flex-start"><span class="avatar" style="background:#92400e">UX</span><div><h3 style="margin:0">UX Strategist — 11 years</h3><p>Research, flow and testing. Maps the shortest path from “just looking” to booked, bought or in touch.</p></div></article>
+            <article class="card" style="display:flex;gap:16px;align-items:flex-start"><span class="avatar" style="background:#334155">CS</span><div><h3 style="margin:0">Content &amp; SEO — 12 years</h3><p>Words and search. Writes headlines people understand and structure Google rewards — especially for blogs and local businesses.</p></div></article>
+          </div>
+        </div>
+      </div>
+      <div style="height:28px"></div>
+      <div class="cta-band"><div><h2 style="color:#fff">Let’s build the presence your business deserves.</h2><p>Browse our live examples, check the transparent pricing, then tell us about your project.</p></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a href="#work" data-nav="work" class="btn btn-ghost" style="background:#fff">View Examples</a><a href="#contact" data-nav="contact" class="btn btn-amber">Contact Us →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="page" id="page-services" aria-label="Services and pricing">
+  <div class="section">
+    <div class="wrap">
+      <p class="eyebrow">Services &amp; Pricing</p>
+      <h1 style="font-size:clamp(2rem,4vw,3.2rem);margin:12px 0 12px">Clear services. Published prices.<br>No “call for a quote” games.</h1>
+      <p style="color:var(--muted);font-size:1.1rem;max-width:70ch">All design prices below are our standard rates. Hosting setup is charged as a <b>service fee for our work</b> — it is <b>separate from</b> what a domain registrar or hosting company charges for the domain and hosting plan itself, which you pay directly to that provider and own in your name.</p>
+
+      <!-- Web design -->
+      <div style="height:34px"></div>
+      <div class="section-head"><p class="eyebrow">01 — Most popular</p><h2>Standard Web Page Design</h2><p>Average industry-aligned pricing, scaled by how many pages you need. Every package is responsive, SEO-ready and hand-built.</p></div>
+      <div class="pricing">
+        <article class="price-card"><h3>Launch</h3><p style="color:var(--muted)">Perfect for a new business or a single strong landing page.</p><div class="price">$499 <small>/ 1 page</small></div><ul><li>1 custom-designed page</li><li>Mobile-first, responsive layout</li><li>Contact / enquiry section</li><li>Basic on-page SEO (title, headings)</li><li>1 revision round</li></ul><a href="#contact" data-nav="contact" class="btn btn-ghost" style="width:100%">Start with Launch</a></article>
+        <article class="price-card featured"><span class="badge">Most Chosen</span><h3>Business</h3><p style="color:var(--muted)">The complete small-business website most clients need.</p><div class="price">$1,199 <small>/ up to 5 pages</small></div><ul><li>Up to 5 pages (Home, About, Services, Gallery, Contact…)</li><li>Custom colour palette &amp; typography</li><li>Contact form to your inbox</li><li>Local SEO basics + Google-friendly structure</li><li>2 revision rounds</li></ul><a href="#contact" data-nav="contact" class="btn btn-teal" style="width:100%">Start with Business</a></article>
+        <article class="price-card"><h3>Growth</h3><p style="color:var(--muted)">For businesses with more services, locations or content.</p><div class="price">$1,899 <small>/ up to 10 pages</small></div><ul><li>Up to 10 pages</li><li>Everything in Business</li><li>Interactive feature (calculator, filter, gallery…)</li><li>Blog-ready structure</li><li>2 revision rounds + launch checklist</li></ul><a href="#contact" data-nav="contact" class="btn btn-ghost" style="width:100%">Start with Growth</a></article>
+      </div>
+      <p style="color:var(--muted);margin-top:12px"><b>Need more pages?</b> Extra pages are <b>$100 each</b> beyond your package. All packages include responsive testing and a final walkthrough in writing.</p>
+
+      <!-- eCommerce -->
+      <div style="height:30px"></div>
+      <div class="section-head"><p class="eyebrow">02 — Sell online</p><h2>eCommerce Page Design</h2><p>Priced by catalogue size — pages <i>and</i> products. Includes product pages, cart and checkout setup so you can actually take payment.</p></div>
+      <div class="pricing">
+        <article class="price-card"><h3>Starter Store</h3><p style="color:var(--muted)">Launch a focused shop and start selling.</p><div class="price">$1,499 <small>/ up to 10 products</small></div><ul><li>Storefront + product pages for up to 10 items</li><li>Cart &amp; checkout setup</li><li>Payment gateway connection</li><li>Delivery / pickup options shown clearly</li><li>Order notification emails</li></ul><a href="#contact" data-nav="contact" class="btn btn-ghost" style="width:100%">Start a Starter Store</a></article>
+        <article class="price-card featured"><span class="badge">Best Value</span><h3>Business Store</h3><p style="color:var(--muted)">A proper catalogue with room to grow.</p><div class="price">$2,499 <small>/ up to 50 products</small></div><ul><li>Up to 50 products, organised by category</li><li>Everything in Starter Store</li><li>Product filters &amp; search-friendly layout</li><li>Discount / offer section</li><li>Stock &amp; pricing display guidance</li></ul><a href="#contact" data-nav="contact" class="btn btn-teal" style="width:100%">Start a Business Store</a></article>
+        <article class="price-card"><h3>Large Catalogue</h3><p style="color:var(--muted)">For established sellers with a wide range.</p><div class="price">$3,999 <small>/ up to 150 products</small></div><ul><li>Up to 150 products</li><li>Everything in Business Store</li><li>Advanced categories &amp; featured collections</li><li>Bulk product layout &amp; import structure</li><li>Launch &amp; handover walkthrough</li></ul><a href="#contact" data-nav="contact" class="btn btn-ghost" style="width:100%">Start a Large Catalogue</a></article>
+      </div>
+      <p style="color:var(--muted);margin-top:12px"><b>Extra products:</b> $10 per product beyond your package limit. You provide product photos, descriptions and prices — we handle layout, categories and checkout flow.</p>
+
+      <!-- Blog -->
+      <div style="height:30px"></div>
+      <div class="section-head"><p class="eyebrow">03 — Build authority</p><h2>Blog Creation</h2><p>Industry-standard pricing for a blog that builds trust, answers customer questions and earns search traffic over time. Standalone or added to any website package.</p></div>
+      <div class="pricing">
+        <article class="price-card"><h3>Blog Setup</h3><p style="color:var(--muted)">A clean, branded blog — ready for you to publish.</p><div class="price">$399 <small>/ setup</small></div><ul><li>Blog design matched to your brand</li><li>Categories &amp; tags structure</li><li>Author / About section</li><li>SEO-friendly post template</li><li>How-to-publish guide in writing</li></ul><a href="#contact" data-nav="contact" class="btn btn-ghost" style="width:100%">Add Blog Setup</a></article>
+        <article class="price-card featured"><span class="badge">Recommended</span><h3>Blog + Starter Content</h3><p style="color:var(--muted)">Launch with content, not an empty page.</p><div class="price">$749 <small>/ setup + 3 posts</small></div><ul><li>Everything in Blog Setup</li><li>3 professionally formatted starter posts</li><li>Headline &amp; keyword structure for search</li><li>Featured images &amp; internal links</li><li>Newsletter signup section</li></ul><a href="#contact" data-nav="contact" class="btn btn-teal" style="width:100%">Launch with Content</a></article>
+        <article class="price-card"><h3>Blog Growth</h3><p style="color:var(--muted)">For businesses serious about content marketing.</p><div class="price">$1,199 <small>/ setup + 5 posts</small></div><ul><li>Everything in Starter Content</li><li>5 starter posts + content calendar outline</li><li>Category landing sections</li><li>Social sharing setup</li><li>SEO checklist for every future post</li></ul><a href="#contact" data-nav="contact" class="btn btn-ghost" style="width:100%">Grow with a Blog</a></article>
+      </div>
+      <p style="color:var(--muted);margin-top:12px"><b>Additional posts:</b> $125 per formatted post (you provide the draft, or ask about writing support). Blog pricing is for design, structure and formatting — hosting is separate, below.</p>
+
+      <!-- Hosting -->
+      <div style="height:30px"></div>
+      <div class="section-head"><p class="eyebrow">04 — Get live, correctly</p><h2>Hosting Setup — Our Service Fee</h2><p>We configure everything so your site is secure, reachable and in your name. Our fee covers our setup work only.</p></div>
+      <div style="overflow-x:auto;border-radius:16px">
+      <table aria-label="Hosting setup pricing">
+        <thead><tr><th>Setup Service</th><th>What We Do</th><th>Our Fee</th></tr></thead>
+        <tbody>
+          <tr><td><b>Domain Setup</b></td><td>Connect your domain, configure DNS, verify ownership — domain registered in <i>your</i> name.</td><td class="price-cell">$49</td></tr>
+          <tr><td><b>Hosting Setup</b></td><td>Provision hosting, install SSL (HTTPS), connect the site, check PHP is a patched, supported version with an upgrade plan if it’s end-of-life, set up site email routing.</td><td class="price-cell">$99</td></tr>
+          <tr><td><b>Domain + Hosting Bundle</b></td><td>Both setups together, tested end-to-end before launch. <b>Save $19</b> vs. separate.</td><td class="price-cell">$129</td></tr>
+          <tr><td><b>Care Plan (optional)</b></td><td>Ongoing checks, small updates and priority written support after launch.</td><td class="price-cell">$49 / mo</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div style="height:14px"></div>
+      <div class="note"><b>Important — separate charges:</b> The fees above are <b>only for Re-Dezyne The Web’s setup work</b>. Your domain registration/renewal and your hosting plan are billed separately by the registrar/hosting company you choose, at their prices. You pay them directly and you own the accounts — we never mark up their prices or hold your site hostage.</div>
+
+      <!-- Estimator -->
+      <div style="height:30px"></div>
+      <div class="estimator">
+        <div class="est-grid">
+          <div>
+            <p class="eyebrow" style="color:#5eead4">Interactive estimator</p>
+            <h3 style="font-size:1.6rem;margin:8px 0 6px">Estimate your project in seconds</h3>
+            <p style="color:#cbd5e1;margin:0 0 18px">Pick a starting package — the total updates live. Final quote is confirmed in writing after we see your brief, with no obligation.</p>
+            <label for="estType">Project type</label>
+            <select id="estType">
+              <option value="web5">Business Website — up to 5 pages ($1,199)</option>
+              <option value="web1">Launch Website — 1 page ($499)</option>
+              <option value="web10">Growth Website — up to 10 pages ($1,899)</option>
+              <option value="shop10">Starter Store — up to 10 products ($1,499)</option>
+              <option value="shop50">Business Store — up to 50 products ($2,499)</option>
+              <option value="shop150">Large Catalogue — up to 150 products ($3,999)</option>
+              <option value="blog">Blog + Starter Content ($749)</option>
+            </select>
+            <div style="height:14px"></div>
+            <label for="estExtra">Extra pages / products beyond package: <span id="estExtraVal">0</span></label>
+            <input type="range" id="estExtra" min="0" max="30" value="0" step="1" aria-label="Extra pages or products">
+            <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:14px">
+              <label style="display:flex;gap:8px;align-items:center;min-height:44px"><input type="checkbox" id="estHosting" style="width:20px;height:20px"> Add Hosting Bundle (+$129)</label>
+              <label style="display:flex;gap:8px;align-items:center;min-height:44px"><input type="checkbox" id="estBlog" style="width:20px;height:20px"> Add Blog Setup (+$399)</label>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:20px;align-self:start">
+            <span style="color:#cbd5e1;font-weight:700">Estimated total</span>
+            <div class="est-total" id="estTotal">$1,199</div>
+            <p id="estBreak" style="color:#cbd5e1;margin:6px 0 16px;font-size:.92rem">Business Website $1,199</p>
+            <a href="#contact" data-nav="contact" class="btn btn-amber" style="width:100%">Request This Estimate →</a>
+            <p style="color:#94a3b8;font-size:.82rem;margin:10px 0 0">Estimate only — excludes registrar/hosting company charges, paid by you directly to the provider.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:28px"></div>
+      <div class="grid-3">
+        <article class="card"><h3>What’s always included?</h3><p>Responsive design, browser testing, basic SEO structure, and a written handover. No surprise line items.</p></article>
+        <article class="card"><h3>How do payments work?</h3><p>We confirm scope and price in writing before work starts. Hosting/domain provider charges are always paid by you, directly to that provider.</p></article>
+        <article class="card"><h3>Not sure what you need?</h3><p>Use the Contact form and describe your business in a few sentences — we’ll recommend the smallest package that does the job.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK / EXAMPLES ============ -->
+<section class="page" id="page-work" aria-label="Examples">
+  <div class="section">
+    <div class="wrap">
+      <p class="eyebrow">Examples — Live Portfolio</p>
+      <h1 style="font-size:clamp(2rem,4vw,3.2rem);margin:12px 0 12px">Bold websites, built to be played with.</h1>
+      <p style="color:var(--muted);font-size:1.1rem;max-width:72ch">11 original business concepts — plus 4 advanced labs — all hand-built in HTML5, CSS3 &amp; JavaScript. Filter a menu, price a project, build an order. This is the same craft we bring to client work. Full live portfolio: <a href="https://jasonmuniz1182-hue.github.io/" target="_blank" rel="noopener"><b>jasonmuniz1182-hue.github.io →</b></a></p>
+      <div class="stats" style="margin-top:20px"><div class="stat"><b>11</b><span>Original concepts</span></div><div class="stat"><b>15</b><span>Live interactive demos</span></div><div class="stat"><b>3</b><span>Core tech — HTML / CSS / JS</span></div><div class="stat"><b>100%</b><span>Responsive &amp; keyboard-friendly</span></div></div>
+
+      <div class="filters" role="search">
+        <input type="search" id="workSearch" placeholder="Search concepts — try “shop”, “menu”, “booking”…" aria-label="Search examples">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="Creative">Creative</button>
+        <button class="chip" data-filter="Hospitality">Hospitality</button>
+        <button class="chip" data-filter="Health">Health</button>
+        <button class="chip" data-filter="Property">Property</button>
+        <button class="chip" data-filter="Commerce">Commerce</button>
+        <button class="chip" data-filter="Lifestyle">Lifestyle</button>
+        <button class="chip" data-filter="Education">Education</button>
+        <button class="chip" data-filter="Services">Services</button>
+        <button class="chip" data-filter="Tech">Tech</button>
+      </div>
+      <p id="workCount" style="color:var(--muted);font-weight:600">Showing 11 of 11 concepts</p>
+      <div class="work-grid" id="workGrid"></div>
+      <p id="workEmpty" style="display:none;color:var(--muted);padding:20px;border:1px dashed var(--line);border-radius:14px">No concepts match that search — try “restaurant”, “shop” or clear the filters.</p>
+
+      <div style="height:36px"></div>
+      <div class="section-head"><h2>Advanced labs — beyond the brief</h2><p>Four hands-on demos showing deeper front-end work: live data, theming, motion, and accessibility + performance.</p></div>
+      <div class="grid-4">
+        <article class="card"><span class="pill">Data · Charts</span><h3>Live Data Dashboard</h3><p>Switch the metric and the chart, total, average and peak recalculate — the same filter → aggregate → render pattern used in real dashboards.</p></article>
+        <article class="card"><span class="pill">Theming · CSS Variables</span><h3>Theme Builder</h3><p>Drag controls and the preview rebuilds from CSS variables — how a design system stays consistent across every page.</p></article>
+        <article class="card"><span class="pill">Motion</span><h3>Motion Lab</h3><p>Pick an animation, change its speed, replay it. Purposeful motion that respects reduced-motion settings.</p></article>
+        <article class="card"><span class="pill">A11y · Performance</span><h3>Contrast + Budget Checker</h3><p>Can everyone read this, and will it load fast enough to keep them? Two checks every professional site should pass.</p></article>
+      </div>
+      <div style="height:24px"></div>
+      <div class="cta-band"><div><h2 style="color:#fff">Want a site like one of these — for your business?</h2><p>Tell us which example is closest to what you imagine, and we’ll tailor the approach, colours and price to you.</p></div><a href="#contact" data-nav="contact" class="btn btn-amber">Start Your Project →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="page" id="page-contact" aria-label="Contact">
+  <div class="section">
+    <div class="wrap">
+      <p class="eyebrow">Contact — Start a Project</p>
+      <h1 style="font-size:clamp(2rem,4vw,3.2rem);margin:12px 0 12px">Tell us what you’d like designed.</h1>
+      <p style="color:var(--muted);font-size:1.1rem;max-width:68ch">Fill out the form below and we’ll reply <b>in writing</b> with next steps and a clear estimate. The button opens your email app with your details ready to send — nothing is submitted until you press Send there.</p>
+      <div style="height:26px"></div>
+      <div class="grid-2" style="align-items:start" id="contactLayout">
+        <div style="display:grid;gap:16px">
+          <article class="card"><h3>What happens next?</h3><p style="margin-bottom:12px">1. You send the form via email.<br>2. We review your brief and reply in writing — usually with a recommended package and a fixed estimate.<br>3. You approve the scope in writing before any work (or payment for our work) begins.</p><div class="highlight">Prefer to browse first? Check <a href="#services" data-nav="services"><b>Services &amp; Pricing</b></a> or <a href="#work" data-nav="work"><b>Examples</b></a> — every price on this site is the real starting price.</div></article>
+          <article class="card"><h3>Good to know</h3><p>• We communicate in writing (email / form) so everything is clear and on record.<br>• Your domain &amp; hosting stay in your name — always.<br>• Not sure about pages or products? Estimate — we’ll help you size it correctly, never oversell.</p></article>
+          <article class="card"><div class="icon amber">✉️</div><h3>Prefer email directly?</h3><p>Use the form — it structures your brief so we can price it accurately first time. Include the service, rough page/product count, and your deadline if you have one.</p></article>
+        </div>
+        <form class="card" id="contactForm" novalidate style="padding:26px">
+          <h2 style="font-size:1.4rem;margin-bottom:4px">Project enquiry form</h2>
+          <p style="color:var(--muted);margin:0 0 18px">Fields marked * are required.</p>
+          <div class="form-grid">
+            <div class="field"><label for="fName">Full name <span>*</span></label><input id="fName" type="text" autocomplete="name" placeholder="e.g. Alex Morgan" required><p class="error" id="eName">Please enter your name.</p></div>
+            <div class="field"><label for="fEmail">Email address <span>*</span></label><input id="fEmail" type="email" autocomplete="email" placeholder="you@business.com" required><p class="error" id="eEmail">Please enter a valid email address.</p></div>
+            <div class="field"><label for="fPhone">Phone number <span>*</span></label><input id="fPhone" type="tel" autocomplete="tel" placeholder="(555) 123-4567" required><p class="error" id="ePhone">Please enter your phone number.</p></div>
+            <div class="field"><label for="fService">What do you need?</label><select id="fService"><option>Standard Website (1–10 pages)</option><option>eCommerce Store</option><option>Blog Creation</option><option>Hosting Setup</option><option>Website + Blog</option><option>Website + Store</option><option>Not sure — advise me</option></select></div>
+          </div>
+          <div style="height:14px"></div>
+          <div class="field"><label for="fAddress">Address</label><input id="fAddress" type="text" autocomplete="street-address" placeholder="Street address"><div style="height:10px"></div><div class="form-grid"><input id="fCity" type="text" autocomplete="address-level2" placeholder="City"><input id="fZip" type="text" autocomplete="postal-code" placeholder="State / ZIP"></div><small>Your address helps us tailor local SEO and confirm service area — it’s never shared.</small></div>
+          <div style="height:14px"></div>
+          <div class="field"><label for="fDesc">Brief description of what you’d like designed <span>*</span></label><textarea id="fDesc" placeholder="e.g. I run a bakery and need a 5-page website with our menu, opening hours and an enquiry form. I like the Verde example. Ideally live next month…" required></textarea><p class="error" id="eDesc">Please add a brief description (at least 20 characters) so we can price your project.</p><small>Helpful to include: your business type, pages/products you need, any example you liked, and your timeline.</small></div>
+          <div style="height:18px"></div>
+          <button type="submit" class="btn btn-teal" style="width:100%">Review &amp; Send via Email →</button>
+          <p style="color:var(--muted);font-size:.88rem;text-align:center;margin:10px 0 0">This opens your email app with the form filled in — review it there and press Send.</p>
+          <div style="height:14px"></div>
+          <div class="success" id="formSuccess" role="status"><b>✓ Ready to send!</b><p style="margin:6px 0 10px" id="successText">Your email app should have opened with your enquiry. If it didn’t, use the button below.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-primary" id="mailtoBtn" href="#">Open Email Again</a><button type="button" class="btn btn-ghost" id="copyBtn">Copy My Enquiry</button><button type="button" class="btn btn-ghost" id="downloadBtn">Download Enquiry (.txt)</button></div><p id="copyMsg" style="margin:8px 0 0;font-weight:700"></p></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div><div class="logo" style="margin-bottom:10px"><span class="logo-mark">R&lt;/&gt;</span><span class="logo-text"><strong>RE-Dezyne The Web</strong><span>Est. 2017</span></span></div><p>Modern, sleek websites built with colour psychology and decades of team experience — designed to be found, trusted and contacted.</p><p style="font-size:.88rem">Built in HTML5 · CSS3 · JavaScript — fully responsive, light &amp; dark mode.</p></div>
+    <div><b style="color:var(--ink)">Explore</b><br><button class="linklike" data-nav="home">Home</button><br><button class="linklike" data-nav="about">About Us</button><br><button class="linklike" data-nav="services">Services &amp; Pricing</button><br><button class="linklike" data-nav="work">Examples / Portfolio</button><br><button class="linklike" data-nav="contact">Contact</button></div>
+    <div><b style="color:var(--ink)">Services</b><p style="margin:8px 0">Web Design from $499<br>eCommerce from $1,499<br>Blog Creation from $399<br>Hosting Setup from $49*</p><p style="font-size:.85rem">*Our setup service fee — registrar/hosting company charges are separate and paid by you directly to that provider.</p><p><a href="https://jasonmuniz1182-hue.github.io/" target="_blank" rel="noopener"><b>Full live portfolio →</b></a></p></div>
+  </div>
+  <div class="wrap" style="margin-top:20px;border-top:1px solid var(--line);padding-top:16px;font-size:.88rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>© 2017–2026 Re-Dezyne The Web. All rights reserved.</span><span>This single <b>index.html</b> file is the complete website — download / save this page to keep your copy.</span></div>
+</footer>
+
+<script>
+// ---------- SPA Router ----------
+var pages = ['home','about','services','work','contact'];
+function showPage(id, push){
+  if(pages.indexOf(id)===-1) id='home';
+  pages.forEach(function(p){
+    document.getElementById('page-'+p).classList.toggle('active', p===id);
+  });
+  document.querySelectorAll('[data-nav]').forEach(function(el){
+    if(el.tagName==='BUTTON') el.classList.toggle('active', el.getAttribute('data-nav')===id);
+  });
+  document.getElementById('mainNav').classList.remove('open');
+  document.getElementById('burger').setAttribute('aria-expanded','false');
+  window.scrollTo({top:0, behavior:'instant'});
+  if(push!==false){ try{ history.replaceState(null,'','#'+id); }catch(e){} }
+  document.title = (id==='home' ? 'Re-Dezyne The Web — Web Design, eCommerce, Blogs & Hosting Setup | Est. 2017' : 'Re-Dezyne The Web — ' + id.charAt(0).toUpperCase()+id.slice(1));
+}
+document.addEventListener('click', function(e){
+  var t = e.target.closest('[data-nav]');
+  if(t){ e.preventDefault(); showPage(t.getAttribute('data-nav')); }
+});
+document.getElementById('burger').addEventListener('click', function(){
+  var nav=document.getElementById('mainNav'); var open=nav.classList.toggle('open');
+  this.setAttribute('aria-expanded', open?'true':'false');
+});
+window.addEventListener('hashchange', function(){ showPage(location.hash.replace('#','')||'home', false); });
+showPage((location.hash||'#home').replace('#',''), false);
+
+// ---------- Examples data (mirrors the live portfolio concepts) ----------
+var concepts=[
+ {n:'Lumen Studio',cat:'Creative',type:'Architecture & Interiors',color:'#3f3a2e',bg:'#e8e0c9',head:'Rooms that breathe.',desc:'A gallery-led site for an architecture studio where clients judge by images in the first ten seconds. One strong project per screen, filterable by type, enquiry one tap away.',hl:'Filterable project gallery — visitors sort homes, studios and renovations instantly.',url:'lumenstudio.design'},
+ {n:'Verde',cat:'Hospitality',type:'Seasonal Restaurant',color:'#fff',bg:'#14342a',head:'Dinner, decided in a glance.',desc:'Restaurant sites fail on phones: PDF menus, hidden prices, buried booking. Verde puts the full menu in thumb-friendly tabs, flags dietary dishes inline, and keeps booking in view.',hl:'Tabbed menu with dietary filters — no PDF, no pinch-zoom, prices always visible.',url:'verde.restaurant'},
+ {n:'PulseFit',cat:'Health',type:'Boutique Fitness Studio',color:'#fff',bg:'#e8490f',head:'Your first class is free.',desc:'Schedule-first design: pick a day, see only that day\u2019s classes, and see honest pricing before you commit.',hl:'Day filter for the class schedule plus a pricing toggle that recalculates savings live.',url:'pulsefit.club'},
+ {n:'Haven Realty',cat:'Property',type:'Real Estate Listings',color:'#122a3a',bg:'#cfdde6',head:'Find the front door you\u2019ll love.',desc:'Listing search that respects budget and bedroom count from the first click — no dead-end searches.',hl:'Instant bedroom filter over live listing cards — no page reloads.',url:'havenrealty.homes'},
+ {n:'Petal & Stem',cat:'Commerce',type:'Florist · Online Shop',color:'#2b1220',bg:'#f3cfd8',head:'Flowers, ordered in a minute.',desc:'A small shop with a big-shop feel: clear prices, occasion filters and a cart that never loses count. Delivery cut-off shown on every product.',hl:'Add-to-cart from the grid with a live basket total — the core interaction of the shop.',url:'petalandstem.shop'},
+ {n:'Atlas & Fern',cat:'Lifestyle',type:'Travel Studio',color:'#231a08',bg:'#e9b949',head:'Trips planned like stories.',desc:'A destination explorer that swaps the whole story — highlights, length, group size — as you browse, so comparing journeys feels like reading, not spreadsheet work.',hl:'Destination switcher that re-composes the full trip panel — highlights, days and group size together.',url:'atlasandfern.travel'},
+ {n:'Cadence School',cat:'Education',type:'Music Lessons',color:'#fff',bg:'#141a2e',head:'Find your level, find your class.',desc:'Music schools lose enquiries when beginners can\u2019t tell which class fits. Cadence opens with a plain-language level finder mapped to real classes with times.',hl:'Level finder: pick your experience and get matched classes with days and times immediately.',url:'cadenceschool.music'},
+ {n:'Mend & Co.',cat:'Services',type:'Home Repair Service',color:'#1f2937',bg:'#e6ddcb',head:'Honest prices, before we visit.',desc:'Repair services hide prices because every job differs — but silence reads as expensive. Mend & Co. offers a ballpark estimator with a clear \u2018final quote after inspection\u2019 note.',hl:'Instant estimate calculator — pick the job, slide the hours, get a ballpark range on the spot.',url:'mendandco.services'},
+ {n:'Orbit Metrics',cat:'Tech',type:'SaaS Analytics Product',color:'#fff',bg:'#0f3d33',head:'Know your numbers by Friday.',desc:'SaaS pages that hide pricing behind \u2018talk to sales\u2019 lose small teams. Orbit leads straight into a team-size pricing calculator with the maths shown.',hl:'Team-size pricing calculator with per-seat maths shown, plus outcomes — not acronyms.',url:'orbitmetrics.app'},
+ {n:'Daily Grind',cat:'Hospitality',type:'Coffee Shop & Roastery',color:'#fff',bg:'#2b1708',head:'Your usual, ready when you are.',desc:'Coffee regulars want speed, not a brand story. Daily Grind puts an order-ahead builder on the homepage — drink, size, milk — total updating as you tap.',hl:'Order-ahead builder with live total, plus store hours for both locations one scroll below.',url:'dailygrind.coffee'},
+ {n:'YaroClean, Inc.',cat:'Services',type:'Cleaning Company Website',color:'#fff',bg:'#0f766e',head:'A spotless home, priced up front.',desc:'A live, real-client website for YaroClean, Inc. — residential & commercial cleaning, 17 years\u2019 experience, founded 2009. Residential prices from NY averages; commercial quoted after a free site visit.',hl:'Live price estimator — slide square footage, tick extras, total updates instantly. No \u2018call for a quote\u2019.',url:'yaroclean.nyc'}
+];
+var grid=document.getElementById('workGrid');
+function renderWork(list){
+  grid.innerHTML=list.map(function(c,i){
+    return '<article class="work-card"><div class="browser-bar"><i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i><span class="url">'+c.url+'</span></div>'
+    +'<div class="work-preview" style="background:'+c.bg+';color:'+c.color+'"><span style="font-size:.72rem;letter-spacing:.13em;font-weight:800;text-transform:uppercase;opacity:.85">'+c.type+'</span><h3>'+c.head+'</h3><p>'+c.desc.split('.')[0]+'.</p></div>'
+    +'<div class="work-body"><div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><h3>'+c.n+'</h3><p style="margin:2px 0;font-weight:700;font-size:.9rem">'+c.type+' · '+c.cat+'</p></div><span class="pill">'+String(i+1).padStart(2,'0')+' / 11</span></div>'
+    +'<p>'+c.desc+'</p><div class="highlight"><b>✦ UX highlight:</b> '+c.hl+'</div>'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px"><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Responsive</span></div><a class="btn btn-primary" style="min-height:42px;padding:9px 14px" href="https://jasonmuniz1182-hue.github.io/" target="_blank" rel="noopener">Open live demo →</a></div></div></article>';
+  }).join('');
+  document.getElementById('workCount').textContent='Showing '+list.length+' of 11 concepts';
+  document.getElementById('workEmpty').style.display=list.length?'none':'block';
+}
+renderWork(concepts);
+var activeFilter='all';
+function applyWorkFilter(){
+  var q=(document.getElementById('workSearch').value||'').toLowerCase().trim();
+  var list=concepts.filter(function(c){
+    var okCat=(activeFilter==='all'||c.cat===activeFilter);
+    var okQ=!q||(c.n+' '+c.type+' '+c.cat+' '+c.desc+' '+c.hl).toLowerCase().indexOf(q)>-1;
+    return okCat&&okQ;
+  });
+  renderWork(list);
+}
+document.getElementById('workSearch').addEventListener('input', applyWorkFilter);
+document.querySelectorAll('[data-filter]').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('[data-filter]').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active'); activeFilter=b.getAttribute('data-filter'); applyWorkFilter();
+  });
+});
+
+// ---------- Estimator ----------
+var basePrices={web1:499,web5:1199,web10:1899,shop10:1499,shop50:2499,shop150:3999,blog:749};
+var baseLabels={web1:'Launch Website',web5:'Business Website',web10:'Growth Website',shop10:'Starter Store',shop50:'Business Store',shop150:'Large Catalogue',blog:'Blog + Starter Content'};
+function calcEst(){
+  var type=document.getElementById('estType').value;
+  var extra=parseInt(document.getElementById('estExtra').value,10)||0;
+  document.getElementById('estExtraVal').textContent=extra;
+  var per=(type.indexOf('shop')===0)?10:100;
+  var total=basePrices[type]+(extra*per);
+  var parts=[baseLabels[type]+' $'+basePrices[type].toLocaleString()];
+  if(extra>0) parts.push(extra+' extra × $'+per+' = $'+(extra*per).toLocaleString());
+  if(document.getElementById('estHosting').checked){ total+=129; parts.push('Hosting Bundle $129'); }
+  if(document.getElementById('estBlog').checked && type!=='blog'){ total+=399; parts.push('Blog Setup $399'); }
+  document.getElementById('estTotal').textContent='$'+total.toLocaleString();
+  document.getElementById('estBreak').textContent=parts.join(' + ');
+}
+['estType','estExtra','estHosting','estBlog'].forEach(function(id){ document.getElementById(id).addEventListener('input', calcEst); document.getElementById(id).addEventListener('change', calcEst); });
+calcEst();
+
+// ---------- Contact form ----------
+var lastEnquiry='';
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name=document.getElementById('fName').value.trim();
+  var email=document.getElementById('fEmail').value.trim();
+  var phone=document.getElementById('fPhone').value.trim();
+  var desc=document.getElementById('fDesc').value.trim();
+  var ok=true;
+  function show(id, bad){ document.getElementById(id).style.display=bad?'block':'none'; if(bad) ok=false; }
+  show('eName', !name);
+  show('eEmail', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+  show('ePhone', phone.length<7);
+  show('eDesc', desc.length<20);
+  if(!ok){ window.scrollTo({top:document.getElementById('contactForm').offsetTop-90, behavior:'smooth'}); return; }
+  var addr=[document.getElementById('fAddress').value.trim(), document.getElementById('fCity').value.trim(), document.getElementById('fZip').value.trim()].filter(Boolean).join(', ');
+  var service=document.getElementById('fService').value;
+  lastEnquiry='New Project Enquiry — Re-Dezyne The Web\n\nName: '+name+'\nEmail: '+email+'\nPhone: '+phone+'\nAddress: '+(addr||'(not provided)')+'\nService needed: '+service+'\n\nProject description:\n'+desc;
+  var mailto='mailto:?subject='+encodeURIComponent('New Project Enquiry — '+name+' ('+service+')')+'&body='+encodeURIComponent(lastEnquiry);
+  document.getElementById('mailtoBtn').href=mailto;
+  document.getElementById('formSuccess').style.display='block';
+  document.getElementById('successText').textContent='Thanks, '+name.split(' ')[0]+' — your enquiry is ready. Your email app should open now; if it doesn\u2019t, use the buttons below to open, copy or download it.';
+  window.location.assign(mailto);
+  document.getElementById('formSuccess').scrollIntoView({behavior:'smooth', block:'center'});
+});
+document.getElementById('copyBtn').addEventListener('click', function(){
+  var msg=document.getElementById('copyMsg');
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(lastEnquiry).then(function(){ msg.textContent='✓ Copied — paste it into any email.'; }).catch(function(){ msg.textContent='Copy failed — use Download instead.'; }); }
+  else { msg.textContent='Copy not available here — use Download instead.'; }
+});
+document.getElementById('downloadBtn').addEventListener('click', function(){
+  var blob=new Blob([lastEnquiry],{type:'text/plain'}); var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download='re-dezyne-enquiry.txt'; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+});
+</script>
+</body>
+</html>
