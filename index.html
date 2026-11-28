@@ -470,7 +470,7 @@ footer a{color:var(--muted)} footer button.linklike{background:none;border:0;col
           <button type="submit" class="btn btn-teal" id="submitBtn" style="width:100%">Send Enquiry →</button>
           <p style="color:var(--muted);font-size:.88rem;text-align:center;margin:10px 0 0">Your enquiry is sent directly to us when you submit — no email app needed.</p>
           <div style="height:14px"></div>
-          <div class="success" id="formSuccess" role="status"><b>✓ Thank you — your enquiry has been sent!</b><p style="margin:6px 0 0" id="successText">We’ve received your details and will reply in writing with next steps and a clear estimate.</p></div>
+          <div class="success" id="formSuccess" role="status"><p style="margin:0" id="successText">Thank you for contacting us. One of our team members will contact you shortly regarding your inquiry.</p></div>
           <div class="form-error" id="formError" role="alert"><b>Your enquiry could not be sent.</b><p style="margin:6px 0 0">Something went wrong — please try again. If it keeps failing, please check your connection and try again in a few minutes.</p></div>
         </form>
       </div>
@@ -620,7 +620,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
   }).then(function(data){
     sendDone();
     if(data && data.ok===true){
-      document.getElementById('successText').textContent='Thanks, '+name.split(' ')[0]+' \u2014 we\u2019ve received your enquiry and will reply in writing with next steps and a clear estimate.';
+      document.getElementById('successText').textContent='Thank you for contacting us. One of our team members will contact you shortly regarding your inquiry.';
       successBox.style.display='block';
       document.getElementById('contactForm').reset();
       successBox.scrollIntoView({behavior:'smooth', block:'center'});
